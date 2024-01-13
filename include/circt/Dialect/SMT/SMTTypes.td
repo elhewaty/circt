@@ -35,4 +35,7 @@ def BitVectorType : SMTTypeDef<"BitVector"> {
   let genVerifyDecl = true;
 }
 
+def AnySMTType : AnyTypeOf<[BoolType, BitVectorType]>;
+def AnyNonSMTType : Type<Neg<AnySMTType.predicate>, "any non-smt type">;
+
 #endif // CIRCT_DIALECT_SMT_SMTTYPES_TD
