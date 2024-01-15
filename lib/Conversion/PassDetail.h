@@ -129,6 +129,10 @@ namespace fsm {
 class FSMDialect;
 } // namespace fsm
 
+namespace smt {
+class SMTDialect;
+} // namespace smt
+
 namespace systemc {
 class SystemCDialect;
 } // namespace systemc
