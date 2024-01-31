@@ -19,6 +19,16 @@ def BoolType : SMTTypeDef<"Bool"> {
   let assemblyFormat = "";
 }
 
+def IntType : SMTTypeDef<"Int"> {
+  let mnemonic = "int";
+  let description = [{
+    This type represents the `Int` sort as described in the
+    [SMT Ints theory](https://smtlib.cs.uiowa.edu/Theories/Ints.smt2) of the
+    SMT-LIB 2.6 standard.
+  }];
+  let assemblyFormat = "";
+}
+
 def BitVectorType : SMTTypeDef<"BitVector"> {
   let mnemonic = "bv";
   let description = [{
@@ -35,7 +45,7 @@ def BitVectorType : SMTTypeDef<"BitVector"> {
   let genVerifyDecl = true;
 }
 
-def AnySMTType : AnyTypeOf<[BoolType, BitVectorType]>;
+def AnySMTType : AnyTypeOf<[BoolType, BitVectorType, IntType]>;
 def AnyNonSMTType : Type<Neg<AnySMTType.predicate>, "any non-smt type">;
 
 #endif // CIRCT_DIALECT_SMT_SMTTYPES_TD
